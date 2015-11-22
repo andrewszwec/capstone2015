@@ -1,0 +1,57 @@
+---
+title: <font face="Times New Roman"><span style="color:rgb(0,0,128)">Can you guess
+  how many stars a reviewer will give based on the words they use?</span></font>
+author: "A Szwec"
+date: "22 November 2015"
+output: html_document
+---
+
+## <span style="color:rgb(0,0,128)">Title</span>
+* Brief description of what was done  
+* Like an exec summary  
+
+
+## <span style="color:rgb(0,0,128)">Introduction</span>
+#### Description of question:
+Can a model be built to relate the keywords in reviews to the number of stars given by the users?
+If so, does the presence of keywords relating to dietary requirements affect the likelihood of a five star rating? 
+
+#### Rationale for studying it:
+* To study if there are benefits and advantages for Cafes/Restaurants that cater for dietary requirements?   
+* This would be valuable for Cafes/Restaurants to see if they could capture additional clientele / better serve their current clientele by catering for dietary requirements. This would allow them to expand into other markets and increase revenue.
+
+## <span style="color:rgb(0,0,128)">Methods and Data</span>
+Describe how you used the data and the type of analytic methods that you used; it's okay to be a bit technical here but clarity is important
+
+* There are ~900k reviews for cafes or restaurants representing 59.4% of reviews
+* The reviews were extracted and processed to create basic features such as number of words, special characters and capital letters
+* Additional processing washed out common words (stopwords), punctutation, and stemmed words then created a document term matrix (dtm) which includes the frequency of each word in each review
+* The top 20 words amongst the reviews were used as features in the final model. These words were selected by reducing the sparsity of the dtm
+* This feature matrix was split into a training and test set and used to produce the model
+* The model chosen was a random forest due to its ability to learn non-linear relationships and combine many weak learners to create a good model. The target variable was Stars.
+* Additionaly hierachal and kmeans clustering were used to look at the relationship between the words
+
+
+## <span style="color:rgb(0,0,128)">Results</span>
+Results - Describe what you found through your analysis of the data.
+
+## <span style="color:rgb(0,0,128)">Discussion</span>
+Explain how you interpret the results of your analysis and what the implications are for your question/problem
+
+2. Do people who mention dietary requirements in their reviews, go to cafes/restaurants  that cater for dietary requirements and what is the uplift on the number of stars given in the review compared to when they go to cafes/restaurants that do not cater for dietary requirements?
+
+**Training set performance**   
+Final model good at predicting 5 stars (34% error rate) compared to other review types (>60% error rate). 5 star features are more clearly represented.
+
+**Test set performance**  
+The model was not very good at predicting the number of stars on the test set. Test set accuracy : 0.3521   
+
+
+
+## <span style="color:rgb(0,0,128)">Conclusion</span>
+* Yes, a model can be built to relate the keywords in reviews to the number of stars given by users. However, more work needs to be done to improve model performance  
+* Suggestions to improve performance include: use a larger training/test set, try a different model type, use kfolds cross-validation  
+* No, keywords relating to dietary requirements do not have a significant impact on predicting the number of stars. The flag indicating the review contains a dietary requirement was not used in the model according to varImp()   
+ 
+
+

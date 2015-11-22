@@ -1,0 +1,16 @@
+# ignore
+*.zip
+*.xlsx
+*.xls
+*.csv
+*.json
+*.pdf
+*.txt
+*.rda
+*.Rda
+*.RData
+*.RDataTmp
+*.Rhistory
+*.png
+*.doc
+*.docx

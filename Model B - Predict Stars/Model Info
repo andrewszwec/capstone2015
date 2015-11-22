@@ -1,0 +1,15 @@
+# Call:
+#       randomForest(x = x, y = y, mtry = param$mtry, allowParallel = TRUE) 
+# Type of random forest: classification
+# Number of trees: 500
+# No. of variables tried at each split: 11
+# 
+# OOB estimate of  error rate: 67.96%
+# Confusion matrix:
+#    1   2    3     4     5    class.error
+# 1 154 174  483  4585  6756   0.9873272
+# 2 161 239  451  5304  7555   0.9825675
+# 3 252 298  785  8262 11885   0.9634578
+# 4 523 614 1681 17387 24852   0.6141110
+# 5 523 690 1745 18350 26294   0.4476283
+# 

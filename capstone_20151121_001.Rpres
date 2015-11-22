@@ -1,0 +1,95 @@
+Can you guess how many stars a reviewer will give based on the words they use?
+========================================================
+author: A Szwec
+date: 21/11/2015
+
+Introduction
+========================================================
+**Description of question:**  
+<small>Can a model be built to relate the keywords in reviews to the number of stars given by the users?
+If so, does the presence of keywords relating to dietary requirements affect the likelihood of a five star rating?</small>
+  
+    
+**Rationale for studying it:**
+- <small>To study if there are benefits and advantages for Cafes/Restaurants that cater for dietary requirements? </small>
+- <small>This would be valuable to Cafes/Restaurants to see if they could capture additional clientele / better serve their current clientele by catering for dietary requirements. This would allow them to expand into other markets and increase revenue.</small>
+
+
+Methods and data
+======================================================== 
+- <small>There are ~900k reviews for cafes or restaurants representing 59.4% of reviews
+- The reviews were extracted and processed to create basic features such as number of words, special characters and capital letters
+- Additional processing washed out common words (stopwords), punctutation, and stemmed words then created a document term matrix (dtm) which includes the frequency of each word in each review
+- The top 20 words amongst the reviews were used as features in the final model. These words were selected by reducing the sparsity of the dtm
+- This feature matrix was split into a training and test set and used to produce the model
+- The model chosen was a random forest due to its ability to learn non-linear relationships and combine many weak learners to create a good model. The target variable was Stars.
+- Additionaly hierachal and kmeans clustering were used to look at the relationship between the words</small>
+
+Results
+========================================================
+<small> See report for full result set. </small>
+<table border="0" style="width:100%">
+  <tr>
+    <td>    
+            <div align="center">
+            <img src="predictDietaryReq/roc.jpg" width=600 >
+            </div></td>
+    <td>
+            <div align="center">
+            <img src="Models Other/hierarchicalClustering.png" width=600>
+            </div></td>
+    </td> 
+    <td>
+            <div align="center">
+            <img src="Models Other/KmeansPlot002.png" width=600>
+            </div></td>
+    </td>
+    <td>
+            <div align="center">
+            <img src="Models - Intro/regressionModel001_Summary.png" width=600>
+            </div></td>
+    </td>
+  </tr>
+  <tr>
+    <td>    
+            <div align="center">
+            <img src="Models - Intro/word-cloud.png" width=600>
+            </div></td>
+    <td>
+            <div align="center">
+            <img src="Models Other/corrgram.png" width=600>
+            </div></td>
+    </td> 
+    <td>
+            <div align="center">
+            <img src="Models Other/PLOT - Word frequencies.png" width=600 >
+            </div></td>
+    </td>
+    <td>
+            <div align="center">
+            <img src="Models - Intro/regressionModel001_VarImportance.png" width=600>
+            </div></td>
+    </td>
+  </tr>
+</table>
+
+
+Discussion
+========================================================
+<small>**Training set performance**   </small>
+<small>Final model good at predicting 5 stars (34% error rate) compared to other review types (>60% error rate). 5 star features are more clearly represented.</small>
+
+<small>**Test set performance**</small>  
+<small>The model was not very good at predicting the number of stars on the test set. Test set accuracy : 0.3521 </small>  
+
+<small>**Conclusion**</small>  
+<small>Yes, a model can be built to relate the keywords in reviews to the number of stars given by users. However, more work needs to be done to improve model performance</small>
+<small>Suggestions to improve performance include: use a larger training/test set, try a different model type, use kfolds cross-validation</small>
+<small>No, keywords relating to dietary requirements do not have a significant impact on predicting the number of stars. The flag indicating the review contains a dietary requirement was not used in the model according to varImp() 
+</small>
+
+
+
+
+
+
